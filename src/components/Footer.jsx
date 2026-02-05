@@ -1,4 +1,4 @@
-import { Terminal, Github, Linkedin, Mail } from './Icons';
+import { Terminal, Github, Linkedin, Mail, Behance } from './Icons';
 
 const footerLinks = {
   navigation: [
@@ -12,6 +12,7 @@ const footerLinks = {
   social: [
     { label: 'GitHub', href: 'https://github.com', icon: Github },
     { label: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
+    { label: 'Behance', href: 'https://behance.net', icon: Behance },
     { label: 'Email', href: 'mailto:hello@example.com', icon: Mail },
   ],
 };

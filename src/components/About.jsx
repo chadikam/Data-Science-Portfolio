@@ -38,7 +38,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Name</p>
-                  <p className="font-medium">Your Name</p>
+                  <p className="font-medium">Chadi Kammoun</p>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">City, Country</p>
+                  <p className="font-medium">Monastir, Tunisia</p>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Education</p>
-                  <p className="font-medium">Computer Science</p>
+                  <p className="font-medium">Data Science</p>
                 </div>
               </div>
             </div>
