@@ -54,7 +54,9 @@ export default function Navbar() {
 
     if (element) {
       const { offsetLeft, offsetWidth } = element;
-      const underlineWidth = offsetWidth * 1; // 65% of link width
+      // Use smaller width for contact link
+      const widthMultiplier = targetLink === '#contact' ? 0.8 : 1;
+      const underlineWidth = offsetWidth * widthMultiplier;
       const underlineLeft = offsetLeft + (offsetWidth - underlineWidth) / 2; // Center it
       setUnderlineStyle({
         left: `${underlineLeft}px`,
@@ -112,7 +114,7 @@ export default function Navbar() {
                     >
                       >
                     </span>
-                    <span className={isHovered ? 'ml-3' : ''}>{link.label}</span>
+                    <span className={isHovered ? 'ml-1.5' : ''}>{link.label}</span>
                   </a>
                 );
               })}
@@ -130,7 +132,7 @@ export default function Navbar() {
 
             <a
               href="#contact"
-              className="btn btn-primary text-sm h-9 px-4 ml-4 relative overflow-hidden group"
+              className="btn btn-primary text-sm h-9 px-4 ml-8 relative overflow-hidden group"
             >
               <span className="relative z-10">Get in Touch</span>
               <span className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />

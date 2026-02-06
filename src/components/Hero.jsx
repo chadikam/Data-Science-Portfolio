@@ -5,22 +5,28 @@ import { ArrowRight, Github, Linkedin, Behance, Download } from './Icons';
 function BootSequence({ onComplete }) {
   const [lines, setLines] = useState([]);
   const [progress, setProgress] = useState(0);
+  const [progress2, setProgress2] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
+    const timeouts = [];
+    let rafId = null;
+
     const bootLines = [
       { text: '> Initializing portfolio...', delay: 0 },
-      { text: '> Loading skills ', delay: 400, hasProgress: true },
-      { text: '> System ready.', delay: 1400 },
+      { text: '> Loading skills ', delay: 400, hasProgress: true, progressId: 1 },
+      { text: '> Loading projects ', delay: 1300, hasProgress: true, progressId: 2 },
+      { text: '> System ready.', delay: 2100 },
     ];
 
-    bootLines.forEach(({ text, delay, hasProgress }) => {
-      setTimeout(() => {
-        setLines((prev) => [...prev, { text, hasProgress }]);
+    bootLines.forEach(({ text, delay, hasProgress, progressId }) => {
+      const timeoutId = setTimeout(() => {
+        setLines((prev) => [...prev, { text, hasProgress, progressId }]);
       }, delay);
+      timeouts.push(timeoutId);
     });
 
-    // Animate progress bar
+    // Animate first progress bar (skills)
     const progressStart = 500;
     const progressDuration = 800;
     const startTime = Date.now();
@@ -28,25 +34,58 @@ function BootSequence({ onComplete }) {
     const animateProgress = () => {
       const elapsed = Date.now() - startTime - progressStart;
       if (elapsed < 0) {
-        requestAnimationFrame(animateProgress);
+        rafId = requestAnimationFrame(animateProgress);
         return;
       }
       const newProgress = Math.min((elapsed / progressDuration) * 100, 100);
       setProgress(newProgress);
       if (newProgress < 100) {
-        requestAnimationFrame(animateProgress);
+        rafId = requestAnimationFrame(animateProgress);
       }
     };
 
-    setTimeout(() => {
-      requestAnimationFrame(animateProgress);
+    const progressTimeoutId = setTimeout(() => {
+      rafId = requestAnimationFrame(animateProgress);
     }, progressStart);
+    timeouts.push(progressTimeoutId);
+
+    // Animate second progress bar (projects)
+    const progressStart2 = 1300;
+    const startTime2 = Date.now();
+
+    const animateProgress2 = () => {
+      const elapsed = Date.now() - startTime2 - (progressStart2 - progressStart);
+      if (elapsed < 0) {
+        rafId = requestAnimationFrame(animateProgress2);
+        return;
+      }
+      const newProgress = Math.min((elapsed / progressDuration) * 100, 100);
+      setProgress2(newProgress);
+      if (newProgress < 100) {
+        rafId = requestAnimationFrame(animateProgress2);
+      }
+    };
+
+    const progressTimeoutId2 = setTimeout(() => {
+      rafId = requestAnimationFrame(animateProgress2);
+    }, progressStart2 - progressStart);
+    timeouts.push(progressTimeoutId2);
 
     // Complete and fade out
-    setTimeout(() => {
+    const completeTimeoutId = setTimeout(() => {
       setIsComplete(true);
-      setTimeout(onComplete, 400);
-    }, 1800);
+      // Call onComplete after fade transition
+      setTimeout(() => {
+        onComplete();
+      }, 400);
+    }, 2500);
+    timeouts.push(completeTimeoutId);
+
+    // Cleanup function
+    return () => {
+      timeouts.forEach(timeoutId => clearTimeout(timeoutId));
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [onComplete]);
 
   const renderProgressBar = (percent) => {
@@ -66,7 +105,9 @@ function BootSequence({ onComplete }) {
           <div key={index} className="animate-fade-in">
             {line.text}
             {line.hasProgress && (
-              <span className="text-primary/70">{renderProgressBar(progress)}</span>
+              <span className="text-primary/70">
+                {renderProgressBar(line.progressId === 1 ? progress : progress2)}
+              </span>
             )}
           </div>
         ))}
@@ -311,28 +352,44 @@ export default function Hero() {
   const [bootComplete, setBootComplete] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [revealStage, setRevealStage] = useState(0);
-
-  // Check if boot was already shown this session
-  useEffect(() => {
-    const hasBooted = sessionStorage.getItem('portfolio-booted');
-    if (hasBooted) {
-      setBootComplete(true);
-      setShowContent(true);
-      setRevealStage(6); // All revealed
-    }
-  }, []);
+  const timeoutsRef = useRef([]);
 
   const handleBootComplete = useCallback(() => {
-    sessionStorage.setItem('portfolio-booted', 'true');
+    // Clear any existing timeouts from previous calls
+    timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+    timeoutsRef.current = [];
+
+    // Boot sequence is complete, show hero content
     setBootComplete(true);
-    // Start staggered reveal
-    setTimeout(() => setShowContent(true), 100);
-    setTimeout(() => setRevealStage(1), 200); // Greeting
-    setTimeout(() => setRevealStage(2), 400); // Name starts typing
-    setTimeout(() => setRevealStage(3), 1200); // Subtitle
-    setTimeout(() => setRevealStage(4), 1500); // Description
-    setTimeout(() => setRevealStage(5), 1800); // Stats
-    setTimeout(() => setRevealStage(6), 2200); // CTAs
+    
+    // Start staggered reveal with timeout tracking
+    const timings = [
+      { delay: 100, action: () => setShowContent(true) },
+      { delay: 200, stage: 1 },
+      { delay: 400, stage: 2 },
+      { delay: 1200, stage: 3 },
+      { delay: 1500, stage: 4 },
+      { delay: 1800, stage: 5 },
+      { delay: 2200, stage: 6 },
+    ];
+
+    timings.forEach(({ delay, stage, action }) => {
+      const timeoutId = setTimeout(() => {
+        if (action) {
+          action();
+        } else if (stage !== null) {
+          setRevealStage(stage);
+        }
+      }, delay);
+      timeoutsRef.current.push(timeoutId);
+    });
+  }, []);
+
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+    };
   }, []);
 
   const getRevealClass = (stage) => {

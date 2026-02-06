@@ -1,4 +1,4 @@
-import { CheckCircle } from './Icons';
+import { CheckCircle, Lightbulb } from './Icons';
 
 const skillCategories = [
   {
@@ -92,9 +92,10 @@ export default function Skills() {
         </div>
 
         {/* Tech Stack Banner */}
-        <div className="mt-12 p-6 card border-primary/30 bg-primary/5">
-          <div className="text-center">
-            <p className="text-lg text-muted-foreground">
+        <div className="mt-12 flex justify-center">
+          <div className="inline-flex items-center gap-2 px-4 py-3 card border-primary/30 bg-primary/5 rounded-lg">
+            <Lightbulb className="h-5 w-5 text-primary flex-shrink-0" />
+            <p className="text-sm text-muted-foreground">
               <strong className="text-primary">Always learning.</strong>{' '}
               I&apos;m constantly exploring new technologies and expanding my skill set.
             </p>
