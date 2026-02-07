@@ -7,9 +7,9 @@ const projects = [
     description:
       'Developed a CNN model for classifying brain MRI images related to Alzheimer\'s disease. Performed comprehensive EDA, image preprocessing, and visualization of convolutional layer activations using Grad-CAM. Achieved 88%+ accuracy and created an interactive web platform for testing predictions.',
     tags: ['TensorFlow', 'Keras', 'CNN', 'Python', 'Grad-CAM'],
-    image: null,
-    github: 'https://github.com/chadikam',
-    demo: null,
+    image: '/000.png',
+    github: 'https://github.com/chadikam/AlzAi',
+    demo: 'https://alz-ai.vercel.app',
     featured: true,
   },
   {
@@ -17,30 +17,10 @@ const projects = [
     description:
       'Built a comprehensive real estate price prediction system using Random Forest regression reaching 93% accuracy. Designed and deployed a web platform with Python Flask backend and interactive frontend for property price queries and predictions. Includes full technical documentation.',
     tags: ['Python', 'Flask', 'Random Forest', 'Scikit-learn', 'Web Platform'],
-    image: null,
-    github: 'https://github.com/chadikam',
-    demo: null,
+    image: '/001.png',
+    github: 'https://github.com/chadikam/CasaQuant',
+    demo: 'https://casaquant.vercel.app',
     featured: true,
-  },
-  {
-    title: 'Data Analysis & Visualization Suite',
-    description:
-      'Created tools for exploratory data analysis and visualization. Integrated multiple Python data science libraries for statistical analysis and interactive visualizations. Used for academic research projects and data exploration.',
-    tags: ['Pandas', 'Matplotlib', 'Plotly', 'NumPy', 'Jupyter'],
-    image: null,
-    github: 'https://github.com/chadikam',
-    demo: null,
-    featured: false,
-  },
-  {
-    title: 'Machine Learning Pipeline Framework',
-    description:
-      'Developed a modular ML pipeline framework for streamlining data preprocessing, model training, and evaluation. Includes utilities for hyperparameter tuning and model comparison.',
-    tags: ['Python', 'Scikit-learn', 'ML Pipelines'],
-    image: null,
-    github: 'https://github.com/chadikam',
-    demo: null,
-    featured: false,
   },
 ];
 
