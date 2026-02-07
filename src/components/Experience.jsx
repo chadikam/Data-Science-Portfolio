@@ -1,60 +1,58 @@
 import { Briefcase, GraduationCap, Calendar, MapPin } from './Icons';
 
 const experiences = [
-  {
+    {
     type: 'work',
-    title: 'Software Engineer',
-    company: 'Tech Company Inc.',
-    location: 'San Francisco, CA',
-    period: 'Jan 2024 - Present',
+    title: 'Data Science Intern',
+    company: 'Ooredoo Tunisia',
+    location: 'Tunis, Tunisia',
+    period: '02/2026 - 08/2026 · 6 mos',
     description:
-      'Building scalable web applications and leading frontend architecture decisions. Collaborating with cross-functional teams to deliver high-quality products.',
+    'Developed a geospatial smart CAPEX planning platform enabling data-driven decisions for 5G network expansion. Built and trained machine learning models to predict potential revenue based on geographic location, supporting optimal placement of network equipment.',
     highlights: [
-      'Led development of new feature that increased user engagement by 40%',
-      'Implemented CI/CD pipelines reducing deployment time by 60%',
-      'Mentored 3 junior developers',
-    ],
-  },
-  {
-    type: 'work',
-    title: 'Frontend Developer',
-    company: 'Startup Labs',
-    location: 'Remote',
-    period: 'Jun 2022 - Dec 2023',
-    description:
-      'Developed and maintained multiple client-facing applications using React and TypeScript. Worked closely with designers to implement pixel-perfect UI.',
-    highlights: [
-      'Built responsive web applications serving 100k+ users',
-      'Reduced bundle size by 35% through code optimization',
-      'Introduced component library standardizing UI across projects',
+      'Machine learning–based revenue prediction using geospatial and business data',
+      'End-to-end data pipeline, model training, and interactive map-based decision support',
     ],
   },
   {
     type: 'education',
-    title: 'B.S. Computer Science',
-    company: 'University Name',
-    location: 'City, State',
-    period: '2020 - 2024',
+    title: 'Master\'s Degree - Data Science',
+    company: 'ISIMM',
+    location: 'Monastir, Tunisia',
+    period: '09/2024 - 06/2026',
     description:
-      'Focused on software engineering, algorithms, and web development. Active member of coding clubs and hackathon participant.',
+      'Completed Master\'s program in Data Science. Focused on applied AI, data engineering pipelines, predictive modeling, and deep learning architectures.',
     highlights: [
-      'GPA: 3.8/4.0',
-      'Dean\'s List - All Semesters',
-      'Won 2nd place at University Hackathon',
+      'Specialized in CNN and computer vision applications',
+      'Developed predictive models and data analysis systems',
+      'Exploring advanced statistical modeling techniques',
     ],
   },
   {
     type: 'work',
-    title: 'Software Engineering Intern',
-    company: 'Big Tech Corp',
-    location: 'Seattle, WA',
-    period: 'Summer 2023',
+    title: 'Odoo Developer | ERP Integration',
+    company: 'IA4Med',
+    location: 'Monastir, Tunisia · Hybrid',
+    period: 'Jan 2024 - Aug 2024 · 8 mos',
     description:
-      'Contributed to production codebase and shipped features used by millions of users. Participated in agile ceremonies and code reviews.',
+      'Developed a custom Odoo ERP module to digitize pediatric dentistry services, streamlining clinical and administrative workflows. Deployed the solution on OVH Cloud with secure SSL integration.',
     highlights: [
-      'Developed new API endpoints handling 1M+ daily requests',
-      'Improved test coverage from 65% to 85%',
-      'Received return offer',
+      'Custom Odoo development with ERP integration for healthcare services',
+      'Cloud deployment with SSL security in a Scrum-based team environment',
+    ],
+  },
+  {
+    type: 'education',
+    title: 'Bachelor\'s Degree - Software Engineering',
+    company: 'ISIMM',
+    location: 'Monastir, Tunisia',
+    period: '09/2021 - 06/2024',
+    description:
+      'Completed Bachelor\'s degree with focus on software engineering fundamentals, algorithms, databases, and full-stack development. Strong foundation in programming and system design.',
+    highlights: [
+      'Comprehensive foundational knowledge in computer science',
+      'Experience with multiple programming languages and frameworks',
+      'Strong problem-solving and analytical skills',
     ],
   },
 ];

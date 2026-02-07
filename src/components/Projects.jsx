@@ -1,63 +1,44 @@
 import { Github, ExternalLink } from './Icons';
+import PixelCard from './PixelCard';
 
 const projects = [
   {
-    title: 'Project Alpha',
+    title: 'Alzheimer\'s Detection - CNN Model',
     description:
-      'A full-stack web application that helps users manage their tasks and projects efficiently. Built with modern technologies and best practices.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
-    image: null, // Placeholder - gradient will be used
-    github: 'https://github.com',
-    demo: 'https://example.com',
+      'Developed a CNN model for classifying brain MRI images related to Alzheimer\'s disease. Performed comprehensive EDA, image preprocessing, and visualization of convolutional layer activations using Grad-CAM. Achieved 88%+ accuracy and created an interactive web platform for testing predictions.',
+    tags: ['TensorFlow', 'Keras', 'CNN', 'Python', 'Grad-CAM'],
+    image: null,
+    github: 'https://github.com/chadikam',
+    demo: null,
     featured: true,
   },
   {
-    title: 'Project Beta',
+    title: 'Real Estate Price Prediction Platform',
     description:
-      'An e-commerce platform with real-time inventory management, payment processing, and analytics dashboard.',
-    tags: ['Next.js', 'Stripe', 'MongoDB', 'AWS'],
+      'Built a comprehensive real estate price prediction system using Random Forest regression reaching 93% accuracy. Designed and deployed a web platform with Python Flask backend and interactive frontend for property price queries and predictions. Includes full technical documentation.',
+    tags: ['Python', 'Flask', 'Random Forest', 'Scikit-learn', 'Web Platform'],
     image: null,
-    github: 'https://github.com',
-    demo: 'https://example.com',
+    github: 'https://github.com/chadikam',
+    demo: null,
     featured: true,
   },
   {
-    title: 'Project Gamma',
+    title: 'Data Analysis & Visualization Suite',
     description:
-      'A mobile-first social platform that connects developers and facilitates knowledge sharing through short-form content.',
-    tags: ['React Native', 'Firebase', 'TypeScript'],
+      'Created tools for exploratory data analysis and visualization. Integrated multiple Python data science libraries for statistical analysis and interactive visualizations. Used for academic research projects and data exploration.',
+    tags: ['Pandas', 'Matplotlib', 'Plotly', 'NumPy', 'Jupyter'],
     image: null,
-    github: 'https://github.com',
+    github: 'https://github.com/chadikam',
     demo: null,
     featured: false,
   },
   {
-    title: 'Project Delta',
+    title: 'Machine Learning Pipeline Framework',
     description:
-      'CLI tool for automating development workflows and improving team productivity with customizable scripts.',
-    tags: ['Python', 'Docker', 'CI/CD'],
+      'Developed a modular ML pipeline framework for streamlining data preprocessing, model training, and evaluation. Includes utilities for hyperparameter tuning and model comparison.',
+    tags: ['Python', 'Scikit-learn', 'ML Pipelines'],
     image: null,
-    github: 'https://github.com',
-    demo: null,
-    featured: false,
-  },
-  {
-    title: 'Project Epsilon',
-    description:
-      'Real-time collaborative document editor with conflict resolution and version history.',
-    tags: ['Vue.js', 'Socket.io', 'Redis'],
-    image: null,
-    github: 'https://github.com',
-    demo: 'https://example.com',
-    featured: false,
-  },
-  {
-    title: 'Project Zeta',
-    description:
-      'Machine learning powered recommendation engine for personalized content delivery.',
-    tags: ['Python', 'TensorFlow', 'FastAPI'],
-    image: null,
-    github: 'https://github.com',
+    github: 'https://github.com/chadikam',
     demo: null,
     featured: false,
   },
@@ -90,15 +71,25 @@ export default function Projects() {
               className="card border-border hover:border-primary/50 transition-all group"
             >
               {/* Project Image/Gradient Placeholder */}
-              <div
-                className={`h-48 rounded-t-lg bg-gradient-to-br ${
-                  gradients[index % gradients.length]
-                } flex items-center justify-center`}
-              >
-                <span className="text-4xl font-bold text-foreground/20">
-                  {project.title.charAt(0)}
-                </span>
-              </div>
+              <PixelCard className="h-48 rounded-t-lg">
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div
+                    className={`w-full h-full bg-gradient-to-br ${
+                      gradients[index % gradients.length]
+                    } flex items-center justify-center`}
+                  >
+                    <span className="text-4xl font-bold text-foreground/20">
+                      {project.title.charAt(0)}
+                    </span>
+                  </div>
+                )}
+              </PixelCard>
 
               {/* Project Content */}
               <div className="p-6">
@@ -162,7 +153,7 @@ export default function Projects() {
         {/* View More */}
         <div className="text-center mt-8">
           <a
-            href="https://github.com"
+            href="https://github.com/chadikam?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline"

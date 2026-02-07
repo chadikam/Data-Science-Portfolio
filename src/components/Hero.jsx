@@ -172,12 +172,14 @@ function TypewriterText({ text, onComplete, startDelay = 0 }) {
 }
 
 // Animated counter for stats
-function AnimatedCounter({ target, suffix = '', duration = 1000 }) {
+function AnimatedCounter({ target, suffix = '', duration = 1000, startAnimation = true }) {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
+    if (!startAnimation) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
@@ -206,7 +208,7 @@ function AnimatedCounter({ target, suffix = '', duration = 1000 }) {
     }
 
     return () => observer.disconnect();
-  }, [target, duration, hasAnimated]);
+  }, [target, duration, hasAnimated, startAnimation]);
 
   return (
     <span ref={ref} className="tabular-nums">
@@ -438,11 +440,11 @@ export default function Hero() {
                 className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 transition-all duration-500 ease-out ${getRevealClass(3)}`}
               >
                 <h2 className="text-xl md:text-2xl text-muted-foreground">
-                  Software Engineer
+                  Data Science Student
                 </h2>
                 <span className="hidden sm:inline text-muted-foreground/50">•</span>
                 <h2 className="text-xl md:text-2xl text-muted-foreground">
-                  Data Scientist
+                  AI Enthusiast
                 </h2>
               </div>
 
@@ -450,10 +452,9 @@ export default function Hero() {
               <p
                 className={`text-muted-foreground text-lg max-w-2xl leading-relaxed transition-all duration-500 ease-out ${getRevealClass(4)}`}
               >
-                I build{' '}
-                <span className="text-primary">modern web applications</span> and
-                solve complex problems with clean, efficient code. Passionate about
-                creating user experiences that make a difference.
+                I'm passionate about <span className="text-primary">AI and data engineering</span>,
+                building intelligent systems through predictive modeling, deep learning, and analytical pipelines.
+                Currently pursuing my Master's in Data Science at ISIMM, exploring computer vision and real-world data applications.
               </p>
 
               {/* Stats */}
@@ -462,21 +463,21 @@ export default function Hero() {
               >
                 <div className="text-center min-w-[80px]">
                   <div className="text-3xl font-bold text-primary">
-                    <AnimatedCounter target={3} suffix="+" duration={800} />
+                    <AnimatedCounter target={5} suffix="+" duration={800} startAnimation={revealStage >= 5} />
                   </div>
-                  <p className="text-sm text-muted-foreground">Years Experience</p>
+                  <p className="text-sm text-muted-foreground">Years of Experience</p>
                 </div>
                 <div className="text-center min-w-[80px]">
                   <div className="text-3xl font-bold text-primary">
-                    <AnimatedCounter target={20} suffix="+" duration={1000} />
+                    <AnimatedCounter target={8} suffix="+" duration={1000} startAnimation={revealStage >= 5} />
                   </div>
-                  <p className="text-sm text-muted-foreground">Projects Completed</p>
+                  <p className="text-sm text-muted-foreground">ML Projects</p>
                 </div>
                 <div className="text-center min-w-[80px]">
                   <div className="text-3xl font-bold text-primary">
-                    <AnimatedCounter target={10} suffix="+" duration={900} />
+                    <AnimatedCounter target={15} suffix="+" duration={900} startAnimation={revealStage >= 5} />
                   </div>
-                  <p className="text-sm text-muted-foreground">Technologies</p>
+                  <p className="text-sm text-muted-foreground">Data Tools</p>
                 </div>
               </div>
 
@@ -488,7 +489,7 @@ export default function Hero() {
                   View My Work
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
-                <a href="#contact" className="btn btn-secondary">
+                <a href="/CV_Chadi Kammoun.pdf" download className="btn btn-secondary">
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume
                 </a>
@@ -499,7 +500,7 @@ export default function Hero() {
                 className={`flex items-center gap-4 pt-6 transition-all duration-500 ease-out ${getRevealClass(6)}`}
               >
                 <a
-                  href="https://github.com"
+                  href="https://github.com/chadikam"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -508,22 +509,13 @@ export default function Hero() {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/chadi-kammoun/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://behance.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="Behance"
-                >
-                  <Behance className="h-5 w-5" />
                 </a>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { User, MapPin, GraduationCap } from './Icons';
+import DecryptedText from './DecryptedText';
 
 export default function About() {
   return (
@@ -14,18 +15,26 @@ export default function About() {
           {/* About Text */}
           <div className="md:col-span-2 space-y-4">
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;m a passionate software engineer and computer science student with a love for building 
-              elegant solutions to complex problems. My journey in tech started when I was in high school, 
-              and I&apos;ve been hooked ever since.
+              <DecryptedText
+                text="I'm a 2nd year Master's student in Data Science, passionate about applied AI and data engineering pipelines. With solid experience in predictive modeling and Deep Learning (CNN), I excel at designing data processing and analysis systems capable of generating concrete insights."
+                animateOn="view"
+                revealDirection="start"
+                sequential
+                useOriginalCharsOnly={true}
+                encryptedClassName="text-primary/40"
+                speed={30}
+              />
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              I specialize in full-stack web development, with expertise in modern JavaScript frameworks, 
-              backend technologies, and cloud services. I&apos;m always eager to learn new technologies and 
-              take on challenging projects.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              When I&apos;m not coding, you can find me exploring new technologies, contributing to 
-              open-source projects, or sharing my knowledge through technical writing and mentoring.
+              <DecryptedText
+                text="Driven by innovation and scientific rigor, I'm passionate about building intelligent systems that solve real-world problems. Whether it's developing CNN models for medical imaging or creating predictive analytics platforms, I love translating complex data into actionable intelligence."
+                animateOn="view"
+                revealDirection="start"
+                sequential
+                useOriginalCharsOnly={true}
+                encryptedClassName="text-primary/40"
+                speed={30}
+              />
             </p>
           </div>
 
@@ -49,8 +58,8 @@ export default function About() {
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">Monastir, Tunisia</p>
+                  <p className="text-sm text-muted-foreground">Phone</p>
+                  <p className="font-medium">+216 50 985 420</p>
                 </div>
               </div>
             </div>
@@ -61,8 +70,8 @@ export default function About() {
                   <GraduationCap className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Education</p>
-                  <p className="font-medium">Data Science</p>
+                  <p className="text-sm text-muted-foreground">Location</p>
+                  <p className="font-medium">Monastir, Tunisia</p>
                 </div>
               </div>
             </div>

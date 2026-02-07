@@ -2,24 +2,24 @@ import { CheckCircle, Lightbulb } from './Icons';
 
 const skillCategories = [
   {
-    title: 'Frontend',
+    title: 'Data Science',
     color: 'blue',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS'],
+    skills: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Statistics'],
   },
   {
-    title: 'Backend',
+    title: 'Machine Learning',
     color: 'green',
-    skills: ['Node.js', 'Python', 'Express', 'PostgreSQL', 'MongoDB'],
+    skills: ['TensorFlow', 'PyTorch', 'Keras', 'Deep Learning', 'NLP'],
   },
   {
-    title: 'Tools & DevOps',
+    title: 'Data Visualization',
     color: 'purple',
-    skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'Linux'],
+    skills: ['Matplotlib', 'Plotly', 'Seaborn', 'Tableau', 'Power BI'],
   },
   {
-    title: 'Other',
+    title: 'Databases & Tools',
     color: 'orange',
-    skills: ['REST APIs', 'GraphQL', 'Testing', 'Agile', 'UI/UX'],
+    skills: ['SQL', 'Apache Spark', 'Jupyter', 'Git', 'AWS'],
   },
 ];
 

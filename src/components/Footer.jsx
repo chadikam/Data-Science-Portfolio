@@ -1,4 +1,4 @@
-import { Terminal, Github, Linkedin, Mail, Behance } from './Icons';
+import { Terminal, Github, Linkedin } from './Icons';
 
 const footerLinks = {
   navigation: [
@@ -10,10 +10,8 @@ const footerLinks = {
     { label: 'Contact', href: '#contact' },
   ],
   social: [
-    { label: 'GitHub', href: 'https://github.com', icon: Github },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
-    { label: 'Behance', href: 'https://behance.net', icon: Behance },
-    { label: 'Email', href: 'mailto:hello@example.com', icon: Mail },
+    { label: 'GitHub', href: 'https://github.com/chadikam', icon: Github },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chadi-kammoun/', icon: Linkedin },
   ],
 };
 
@@ -31,26 +29,24 @@ export default function Footer() {
               <span className="font-semibold text-lg">Portfolio</span>
             </a>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Building modern web experiences with clean code and thoughtful
-              design. Let's create something amazing together.
+              Passionate about data science, AI, and building intelligent systems that solve real-world problems. Let's collaborate on transforming data into insights.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+            <div className="grid grid-cols-2 gap-2">
               {footerLinks.navigation.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Social */}
@@ -77,14 +73,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-8 border-t border-border flex justify-center">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Portfolio. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Built with{' '}
-            <span className="text-primary">React</span> &{' '}
-            <span className="text-primary">Tailwind CSS</span>
+            © {currentYear} Chadi Kammoun. All rights reserved.
           </p>
         </div>
       </div>

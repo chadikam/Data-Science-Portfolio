@@ -334,17 +334,10 @@ export const Behance = ({ className = '' }) => (
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    fill="currentColor"
     className={className}
   >
-    <path d="M6 4h12M6 12h8M6 20h12M18 6a2 2 0 1 0 4 0 2 2 0 0 0-4 0M18 14a2 2 0 1 0 4 0 2 2 0 0 0-4 0" />
-    <rect x="4" y="4" width="8" height="4" />
-    <rect x="4" y="12" width="8" height="4" />
-    <rect x="4" y="20" width="8" height="4" />
+    <path d="M6.5 4C4.5 4 3 5.5 3 7.5c0 1.9 1.5 3.5 3.5 3.5S10 9.4 10 7.5C10 5.5 8.5 4 6.5 4zm0 5.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm9-5.5h5v1.5h-5V4zm1.5 5.5c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5c2 0 3.7-1.3 4.3-3h-2.1c-.4.6-1.1 1-1.8 1-1.2 0-2.2-.9-2.4-2h6.5v-.5c0-2.5-2-4.5-4.5-4.5zm-2.5 4c.3-1.1 1.2-2 2.5-2s2.2.9 2.5 2h-5zM3 13v7h5c1.9 0 3.5-1.6 3.5-3.5S9.9 13 8 13H3zm5 5.5H5.5V15H8c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5z"/>
   </svg>
 );
 

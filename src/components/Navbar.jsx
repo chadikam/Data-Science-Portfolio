@@ -112,7 +112,7 @@ export default function Navbar() {
                           : 'opacity-0 -translate-x-2'
                       }`}
                     >
-                      >
+                      {'>'}
                     </span>
                     <span className={isHovered ? 'ml-1.5' : ''}>{link.label}</span>
                   </a>
