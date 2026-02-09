@@ -92,7 +92,7 @@ export default function Contact() {
           <div className="space-y-8">
             <div>
               <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-sm md:text-base text-justify">
                 I'm always open to discussing new opportunities, creative ideas, or
                 potential collaborations. Whether you have a question or just want to
                 say hi, I'll try my best to get back to you!

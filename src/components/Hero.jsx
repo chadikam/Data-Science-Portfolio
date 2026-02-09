@@ -332,12 +332,12 @@ function HeroImage() {
   return (
     <div className="relative flex justify-center items-center">
       {/* Particle canvas */}
-      <div className="absolute w-[500px] h-[500px] md:w-[550px] md:h-[550px]">
+      <div className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px]">
         <ParticleOrbit />
       </div>
 
       {/* Image container */}
-      <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-primary/20 flex-shrink-0">
+      <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-primary/20 flex-shrink-0">
         <img
           src="/ff.png"
           alt="Chadi Kammoun"
@@ -407,12 +407,12 @@ export default function Hero() {
 
       <section
         id="home"
-        className={`min-h-screen flex items-center pt-16 md:pt-28 pb-16 md:pb-32 transition-opacity duration-500 ${
+        className={`min-h-screen flex items-center pt-16 md:pt-28 pb-0 md:pb-32 transition-opacity duration-500 ${
           showContent ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <div className="container px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-12 items-center max-w-6xl mx-auto">
             {/* Left Content */}
             <div className="space-y-6">
               {/* Greeting */}
@@ -439,18 +439,18 @@ export default function Hero() {
               <div
                 className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 transition-all duration-500 ease-out ${getRevealClass(3)}`}
               >
-                <h2 className="text-xl md:text-2xl text-muted-foreground">
+                <h2 className="text-base sm:text-lg md:text-2xl text-muted-foreground">
                   Data Science Student
                 </h2>
                 <span className="hidden sm:inline text-muted-foreground/50">•</span>
-                <h2 className="text-xl md:text-2xl text-muted-foreground">
+                <h2 className="text-base sm:text-lg md:text-2xl text-muted-foreground">
                   AI Enthusiast
                 </h2>
               </div>
 
               {/* Description */}
               <p
-                className={`text-muted-foreground text-lg max-w-2xl leading-relaxed transition-all duration-500 ease-out ${getRevealClass(4)}`}
+                className={`text-muted-foreground text-base md:text-lg max-w-2xl leading-relaxed px-2 md:px-0 text-justify transition-all duration-500 ease-out ${getRevealClass(4)}`}
               >
                 I'm passionate about <span className="text-primary">AI and data engineering</span>,
                 building intelligent systems through predictive modeling, deep learning, and analytical pipelines.
@@ -459,31 +459,31 @@ export default function Hero() {
 
               {/* Stats */}
               <div
-                className={`flex flex-wrap gap-6 pt-4 transition-all duration-500 ease-out ${getRevealClass(5)}`}
+                className={`flex flex-nowrap gap-3 md:gap-6 pt-4 justify-center md:justify-start overflow-x-auto transition-all duration-500 ease-out ${getRevealClass(5)}`}
               >
-                <div className="text-center min-w-[80px]">
-                  <div className="text-3xl font-bold text-primary">
+                <div className="text-center flex-shrink-0">
+                  <div className="text-2xl md:text-3xl font-bold text-primary">
                     <AnimatedCounter target={5} suffix="+" duration={800} startAnimation={revealStage >= 5} />
                   </div>
-                  <p className="text-sm text-muted-foreground">Years of Experience</p>
+                  <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Y.O Experience</p>
                 </div>
-                <div className="text-center min-w-[80px]">
-                  <div className="text-3xl font-bold text-primary">
+                <div className="text-center flex-shrink-0">
+                  <div className="text-2xl md:text-3xl font-bold text-primary">
                     <AnimatedCounter target={8} suffix="+" duration={1000} startAnimation={revealStage >= 5} />
                   </div>
-                  <p className="text-sm text-muted-foreground">ML Projects</p>
+                  <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">ML Projects</p>
                 </div>
-                <div className="text-center min-w-[80px]">
-                  <div className="text-3xl font-bold text-primary">
+                <div className="text-center flex-shrink-0">
+                  <div className="text-2xl md:text-3xl font-bold text-primary">
                     <AnimatedCounter target={15} suffix="+" duration={900} startAnimation={revealStage >= 5} />
                   </div>
-                  <p className="text-sm text-muted-foreground">Data Tools</p>
+                  <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Data Tools</p>
                 </div>
               </div>
 
               {/* CTA Buttons */}
               <div
-                className={`flex flex-col sm:flex-row gap-4 pt-6 transition-all duration-500 ease-out ${getRevealClass(6)}`}
+                className={`flex flex-col sm:flex-row gap-4 pt-6 px-2 md:px-0 transition-all duration-500 ease-out ${getRevealClass(6)}`}
               >
                 <a href="#projects" className="btn btn-primary">
                   View My Work
@@ -497,7 +497,7 @@ export default function Hero() {
 
               {/* Social Links */}
               <div
-                className={`flex items-center gap-4 pt-6 transition-all duration-500 ease-out ${getRevealClass(6)}`}
+                className={`flex items-center gap-4 pt-0 md:pt-6 transition-all duration-500 ease-out ${getRevealClass(6)}`}
               >
                 <a
                   href="https://github.com/chadikam"

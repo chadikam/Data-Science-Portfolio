@@ -3,7 +3,7 @@ import DecryptedText from './DecryptedText';
 
 export default function About() {
   return (
-    <section id="about" className="container px-4 py-20 scroll-mt-20">
+    <section id="about" className="container px-4 py-12 md:py-20 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         {/* Section Header */}
         <div className="mb-12">
@@ -14,7 +14,7 @@ export default function About() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* About Text */}
           <div className="md:col-span-2 space-y-4">
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
               <DecryptedText
                 text="I'm a 2nd year Master's student in Data Science, passionate about applied AI and data engineering pipelines. With solid experience in predictive modeling and Deep Learning (CNN), I excel at designing data processing and analysis systems capable of generating concrete insights."
                 animateOn="view"
@@ -25,7 +25,7 @@ export default function About() {
                 speed={30}
               />
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
               <DecryptedText
                 text="Driven by innovation and scientific rigor, I'm passionate about building intelligent systems that solve real-world problems. Whether it's developing CNN models for medical imaging or creating predictive analytics platforms, I love translating complex data into actionable intelligence."
                 animateOn="view"
