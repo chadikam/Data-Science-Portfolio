@@ -2,6 +2,16 @@ import { Github, ExternalLink } from './Icons';
 import PixelCard from './PixelCard';
 
 const projects = [
+    {
+    title: 'AutoML — Machine Learning Platform',
+    description:
+      'Developed a comprehensive open-source automated machine learning framework that simplifies the entire ML pipeline from data preprocessing to model training and evaluation. Features adaptive preprocessing with intelligent handling of missing values, outliers, and categorical features. Implemented hyperparameter optimization using Optuna with support for multiple algorithms (XGBoost, LightGBM, Random Forest, SVM, Neural Networks). Built a React-based interactive web platform with FastAPI backend enabling users to upload datasets, run experiments, visualize feature importance, and export trained models. Advanced capabilities include EDA automation, class imbalance handling (SMOTE), anomaly detection, and clustering analysis. Successfully packaged as a standalone Windows executable for production deployment.',
+    tags: ['React', 'Python','FastAPI', 'Scikit-learn', 'XGBoost', 'LightGBM', 'Optuna',],
+    image: '/002.png',
+    github: 'https://github.com/chadikam/AutoMl',
+    featured: false,
+    inProgress: true,
+  },
   {
     title: 'Alzheimer\'s Detection - CNN Model',
     description:
@@ -77,11 +87,18 @@ export default function Projects() {
                   <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  {project.featured && (
-                    <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full">
-                      Featured
-                    </span>
-                  )}
+                  <div className="flex items-center gap-2">
+                    {project.featured && (
+                      <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full whitespace-nowrap">
+                        Featured
+                      </span>
+                    )}
+                    {project.inProgress && (
+                      <span className="text-xs px-2 py-1 bg-amber-500/20 text-amber-400 rounded-full whitespace-nowrap">
+                        In Progress
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
