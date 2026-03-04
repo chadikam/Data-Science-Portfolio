@@ -1,4 +1,5 @@
-import { Briefcase, GraduationCap, Calendar, MapPin } from './Icons';
+import { useState } from 'react';
+import { Briefcase, GraduationCap, Calendar, MapPin, ChevronDown } from './Icons';
 
 const experiences = [
     {
@@ -58,6 +59,12 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <section id="experience" className="container px-4 py-20 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
@@ -86,7 +93,10 @@ export default function Experience() {
 
                 {/* Content */}
                 <div className={`ml-8 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className="card p-6 border-border hover:border-primary/30 transition-colors">
+                  <div 
+                    className="card p-6 border-border hover:border-primary/30 transition-colors cursor-pointer"
+                    onClick={() => toggleExpand(index)}
+                  >
                     {/* Header */}
                     <div className="flex items-start gap-4 mb-4">
                       <div
@@ -108,14 +118,21 @@ export default function Experience() {
                           <GraduationCap className="h-5 w-5 text-emerald-400" />
                         )}
                       </div>
-                      <div>
-                        <h3 className="font-semibold">{exp.title}</h3>
-                        <p className="text-primary">{exp.company}</p>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <h3 className="font-semibold">{exp.title}</h3>
+                          <ChevronDown 
+                            className={`h-5 w-5 text-muted-foreground transition-transform ${
+                              expandedIndex === index ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </div>
+                        <p className="text-primary text-sm">{exp.company}</p>
                       </div>
                     </div>
 
                     {/* Meta */}
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
+                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Calendar className="h-4 w-4" />
                         {exp.period}
@@ -126,23 +143,28 @@ export default function Experience() {
                       </span>
                     </div>
 
-                    {/* Description */}
-                    <p className="text-sm text-muted-foreground mb-4 text-justify">
-                      {exp.description}
-                    </p>
+                    {/* Expandable Content */}
+                    {expandedIndex === index && (
+                      <div className="mt-4 pt-4 border-t border-border">
+                        {/* Description */}
+                        <p className="text-sm text-muted-foreground mb-4 text-justify">
+                          {exp.description}
+                        </p>
 
-                    {/* Highlights */}
-                    <ul className="space-y-1">
-                      {exp.highlights.map((highlight) => (
-                        <li
-                          key={highlight}
-                          className="text-sm text-muted-foreground flex items-start gap-2"
-                        >
-                          <span className="text-primary mt-1">→</span>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
+                        {/* Highlights */}
+                        <ul className="space-y-1">
+                          {exp.highlights.map((highlight) => (
+                            <li
+                              key={highlight}
+                              className="text-sm text-muted-foreground flex items-start gap-2"
+                            >
+                              <span className="text-primary mt-1">→</span>
+                              {highlight}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
 
