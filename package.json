@@ -27,6 +27,7 @@
     "*.{js,ts,tsx}": "eslint"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "lint": "^0.8.19",
     "motion": "^12.33.0",
     "react": "^19.0.0",
