@@ -237,3 +237,43 @@
 .animate-slide-down {
   animation: slide-down 0.2s ease-out forwards;
 }
+
+/* Project category switch animations */
+@keyframes projects-slide-in-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes projects-slide-in-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.projects-slide-in-from-left {
+  animation: projects-slide-in-from-left 0.35s cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.projects-slide-in-from-right {
+  animation: projects-slide-in-from-right 0.35s cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-slide-in-from-left,
+  .projects-slide-in-from-right {
+    animation: none;
+  }
+}
